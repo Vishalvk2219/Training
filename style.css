@@ -119,7 +119,7 @@ li {
 
 #btt {
     position: fixed;
-    bottom: 10px;
+    bottom: 10%;
     left:50%;
     background-color: rgba(206, 221, 206, 0.3);
     color: white;
@@ -155,6 +155,10 @@ li {
     
     img {
         width: 80%;
+    }
+
+    section{
+        margin: 2% 2%;
     }
 
     p {
