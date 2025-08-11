@@ -1,0 +1,186 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #101F33;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+header {
+    position: sticky;
+    top: 0;
+    background-color: #101F33;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 15px 20px;
+}
+
+#vishal a {
+    color: greenyellow;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#navbarlinks a:hover{
+    background-color: rgb(14, 170, 14);
+    backdrop-filter: blur(5px);
+}
+#hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: greenyellow;
+}
+
+#navbarlinks a {
+    text-decoration: none;
+    color: greenyellow;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+p {
+    padding: 0 10%;
+    text-align: center;
+    font-size: large;
+}
+
+section {
+    margin: 50px 10%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+}
+
+img {
+    width: 30%;
+    margin: 0 auto;
+    display: block;
+    border: 2px solid greenyellow;
+    border-radius: 10%;
+}
+
+#education {
+    width: 60%;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    width: 100%;
+    padding: 20px;
+}
+
+#projects section {
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#form {
+    padding: 30px;
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    margin: auto;
+}
+
+input, label, textarea {
+    display: block;
+}
+
+input, textarea {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+li {
+    font-size: 1.2rem;
+}
+
+#btt {
+    position: fixed;
+    bottom: 10px;
+    left:50%;
+    background-color: rgba(206, 221, 206, 0.3);
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid rgba(0, 255, 0, 0.6);
+    border-radius: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+}
+
+
+@media screen and (max-width: 600px) {
+    #hamburger{
+        position: fixed;
+        top:10px;
+        left:10px;
+        display: flex;
+        justify-content: flex-end;
+        margin: 10px 20px;
+    }
+    nav{
+        display: none;
+        flex-direction: column;
+    }
+    #navbarlinks{
+        display: flex;
+        flex-direction: column;
+    }
+    nav.active{
+        display: flex;
+    }
+    
+    img {
+        width: 80%;
+    }
+
+    p {
+        padding: 0 5%;
+        font-size: 1rem;
+
+    }
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    #form {
+        width: 90%;
+    }
+    li {
+        font-size: 1rem;
+    }
+
+    td{
+        font-size: 1.2rem;
+        padding: 10px;
+    }
+    
+}
+
+
+   
+    

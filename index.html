@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+</head>
+<body>
+    <header>
+    <nav id="'nav">
+        <div id="vishal">
+            <a href="/">Vishal Kumar</a>
+        </div>
+        <div id="navbarlinks">
+            <a href="#aboutme">About Me</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contactus">Contact Us</a>
+        </div>
+        </nav>
+    <div id="hamburger">&#9776;</div>
+    </header>
+    <section id="aboutme">
+        <h1>About Me</h1>
+        <img src="Profile.jpg">
+        <p>I am an enthusiastic and adaptable individual with a strong foundation in Artificial Intelligence, Machine Learning, and Full Stack Development. Passionate about solving real-world problems through technology, I enjoy combining creativity with analytical thinking to deliver impactful solutions. My experience spans building intelligent systems, designing user-friendly interfaces, and optimizing backend processes for efficiency. I am a quick learner who thrives in collaborative environments, embracing challenges as opportunities to grow. With a commitment to continuous learning, I aim to contribute to innovative projects that create meaningful value.</p>
+    </section>
+
+    <section id="education">
+        <h1>Education</h1>
+        <table>
+            <tr>
+                <td>University school of Automation and Robotics</td>
+                <td>B.tech in AIML</td>
+                <td>2025</td>
+            </tr>
+            <tr>
+                <td>Mount Olivet Sr. Sec. School</td>
+                <td>12th (Science)</td>
+                <td>2021</td>
+            </tr>
+        </table>
+    </section>
+
+    <section id='projects'>
+        <h1>Projects</h1>
+        <section>
+            <h2>Sentiment Analysis</h2>
+            <ul>
+                <li>The Sarcasm Analysis project focuses on detecting sarcastic intent in text using advanced Natural Language Processing techniques.</li>
+                <li>It leverages deep learning models to capture subtle linguistic cues and contextual meanings behind words.</li>
+                <li>The system is trained on labeled datasets containing both sarcastic and non-sarcastic sentences.</li>
+                <li>Preprocessing steps include tokenization, stopword removal, and embedding generation for better feature representation.</li>
+                <li>Our model applies attention mechanisms to understand context dependencies effectively.</li>
+                <li>Evaluation is performed using metrics like accuracy, precision, recall, and F1-score.</li>
+                <li>The project aims to improve sentiment analysis systems by handling sarcasm more accurately.</li>
+                <li>It can be integrated into chatbots, social media monitoring tools, and customer feedback analysis systems.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Crop Pest Disease Classification</h2>
+            <ul>
+                <li>The Crop Pest Disease Classification project aims to identify pest-induced crop diseases from plant images using deep learning.</li>
+                <li>It utilizes a custom ResNet18_KAN model to capture both visual and structural features effectively.</li>
+                <li>The dataset includes multi-class images of crops affected by various pests and diseases.</li>
+                <li>Preprocessing involves image resizing, normalization, and data augmentation to improve model generalization.</li>
+                <li>Feature extraction is optimized through hybrid convolutional and Kolmogorov-Arnold Network layers.</li>
+                <li>Performance is evaluated using accuracy, F1-score, and confusion matrix analysis.</li>
+                <li>The system provides fast, accurate disease identification to assist farmers and agricultural experts.</li>
+                <li>It can be integrated into mobile and IoT-based smart farming solutions for real-time detection.</li>
+            </ul>
+        </section>
+    </section>
+    <div id="contactus">
+    <div id="form">
+        <form method="post">
+            <h2>Contact Us</h2>
+            <label for="name">Name</label>
+            <input type="text" id="name">
+            <label for="email">Email</label>
+            <input type="email" id="email">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    </div>
+    
+<script>
+const nav = document.querySelector('nav');
+const hamburger = document.getElementById('hamburger');
+const navLinks = nav.querySelectorAll('a');
+
+
+hamburger.addEventListener('click', function(event) {
+    event.stopPropagation(); 
+    nav.classList.toggle('active');
+});
+
+
+document.addEventListener('click', function(event) {
+    if (nav.classList.contains('active') && !nav.contains(event.target)) {
+        nav.classList.remove('active');
+    }
+});
+
+navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+        nav.classList.remove('active');
+    });
+});
+</script>
+
+
+<a id="btt" href="#aboutme">Back To Top</a>
+</body>
+</html>
