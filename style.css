@@ -119,7 +119,7 @@ li {
 
 #btt {
     position: fixed;
-    bottom: 10%;
+    bottom: 5%;
     left:50%;
     background-color: rgba(206, 221, 206, 0.3);
     color: white;
@@ -157,13 +157,14 @@ li {
         width: 80%;
     }
 
-    section{
-        margin: 2% 2%;
+    #projects section{
+        width: 100%;
     }
 
     p {
         padding: 0 5%;
         font-size: 1rem;
+        text-align: left;
 
     }
     table {
