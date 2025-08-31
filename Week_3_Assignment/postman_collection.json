@@ -1,0 +1,610 @@
+{
+	"info": {
+		"_postman_id": "05537585-3a22-4fb3-886f-ebf666c7bed5",
+		"name": "backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48023708",
+		"_collection_link": "https://vishal-kumar-aa011ca8-8798202.postman.co/workspace/Vishal's-Workspace~9e584205-d42b-46dd-80c6-7781d37ec5e2/collection/48023708-05537585-3a22-4fb3-886f-ebf666c7bed5?action=share&source=collection_link&creator=48023708"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Arjun Patel\",\r\n    \"email\": \"arjun.patel@example.com\",\r\n    \"password\": \"hashedValue999\",\r\n    \"role\": \"student\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"rahul.mehta@example.com\",\r\n    \"password\": \"mySecret789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "viewProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDI1OWQ1NmFkMzM0ZjIzYmQ1MyIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU2NjUwODI0LCJleHAiOjE3NTY3MzcyMjR9.q7XHBcW-O1nb70BKHZMzbxJADkyqF49Ox8NAGCtw3MI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/student/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProfile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDI1OWQ1NmFkMzM0ZjIzYmQ1MyIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU2NjUwODI0LCJleHAiOjE3NTY3MzcyMjR9.q7XHBcW-O1nb70BKHZMzbxJADkyqF49Ox8NAGCtw3MI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mobile\":\"7895426512\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/update-profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewAllCourses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDI1OWQ1NmFkMzM0ZjIzYmQ1MyIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU2NjUwODI0LCJleHAiOjE3NTY3MzcyMjR9.q7XHBcW-O1nb70BKHZMzbxJADkyqF49Ox8NAGCtw3MI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/all-courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"all-courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enroll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDI1OWQ1NmFkMzM0ZjIzYmQ1MyIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU2NjUwODI0LCJleHAiOjE3NTY3MzcyMjR9.q7XHBcW-O1nb70BKHZMzbxJADkyqF49Ox8NAGCtw3MI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseCode\": \"CS305\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/enroll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"enroll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEnrolledCourses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDI1OWQ1NmFkMzM0ZjIzYmQ1MyIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU2NjUwODI0LCJleHAiOjE3NTY3MzcyMjR9.q7XHBcW-O1nb70BKHZMzbxJADkyqF49Ox8NAGCtw3MI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/student/enrolled-courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"student",
+								"enrolled-courses"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "createCourse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"title\": \"Artificial Intelligence\",\r\n    \"department\": \"Computer Science\",\r\n    \"code\": \"CS305\",\r\n    \"description\": \"Explores machine learning, neural networks, and AI applications in modern systems.\",\r\n    \"duration\": \"1 year\",\r\n    \"fees\": 45000\r\n  }"
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/create-course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"create-course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "viewAllStudents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCourse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"updated title introduction to computer science\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/update-course/CS305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"update-course",
+								"CS305"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/search?name=rahul",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "rahul"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getStudentsCourseWise",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/get-student/CS305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"get-student",
+								"CS305"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "analytics",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/analytics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"analytics"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allCourses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/all-courses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"all-courses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCourse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4YjQ1ZDBmOWQ1NmFkMzM0ZjIzYmQ1MiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc1NjY1MDk5MSwiZXhwIjoxNzU2NzM3MzkxfQ.glFc2tjqMeBT_m0pYSMuc27CZcWwoayYOIaP0g1E09U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/delete-course/CS305",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"delete-course",
+								"CS305"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
