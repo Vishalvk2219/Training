@@ -1,4 +1,4 @@
-module.exports = {
+const userSchemaMain = {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -23,17 +23,15 @@ module.exports = {
           maxLength: 128,
         },
         mobile: {
-          bsonType: "string",
+          bsonType: ["null","string"],
           description: "10-digit mobile number",
-          minLength: 10,
-          maxLength: 10,
           pattern: "^[0-9]{10}$",
         },
 
         age: {
-          bsonType: "int",
+          bsonType: ["int","null"],
           description: "Age of the user (must be realistic)",
-          minimum: 5,
+          minimum: 1,
           maximum: 100,
         },
         role: {
@@ -56,7 +54,8 @@ module.exports = {
           description: "Account last updated timestamp",
         },
       },
-      additionalProperties: false,
     },
   },
 };
+
+module.exports={userSchemaMain};

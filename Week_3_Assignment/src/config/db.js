@@ -1,8 +1,8 @@
 const { MongoClient } = require("mongodb");
 const dotenv = require("dotenv");
-const { userSchema } = require("../models/userSchema");
-const { courseSchema } = require("../models/courseSchema");
-const { enrollmentSchema } = require("../models/enrollmentSchema");
+const  {userSchemaMain } = require("../models/userSchema");
+const { courseSchemaMain } = require("../models/courseSchema");
+const { enrollmentSchemaMain } = require("../models/enrollmentSchema");
 dotenv.config();
 
 let client;
@@ -25,7 +25,7 @@ async function connectDB() {
         const userAll = await db.listCollections({ name: "users" }).toArray();
         if (userAll.length === 0) {
             console.log("Creating users collection...");
-            await db.createCollection("users", userSchema);
+            await db.createCollection("users", userSchemaMain);
             console.log("Users collection created");
         }
         await db.collection("users").createIndex({ email: 1 }, { unique: true });
@@ -33,7 +33,7 @@ async function connectDB() {
         const courseAll = await db.listCollections({ name: "courses" }).toArray();
         if (courseAll.length === 0) {
             console.log("Creating courses collection...");
-            await db.createCollection("courses", courseSchema);
+            await db.createCollection("courses", courseSchemaMain);
             console.log("Courses collection created");
         }
         await db.collection("courses").createIndex({ code: 1 }, { unique: true });
@@ -43,7 +43,7 @@ async function connectDB() {
             .toArray();
         if (enrollmentAll.length === 0) {
             console.log("Creating enrollments collection...");
-            await db.createCollection("enrollments", enrollmentSchema);
+            await db.createCollection("enrollments", enrollmentSchemaMain);
             console.log("Enrollments collection created");
         }
 

@@ -1,4 +1,4 @@
-module.exports = {
+const courseSchemaMain = {
   validator: {
     $jsonSchema: {
       bsonType: "object",
@@ -54,7 +54,8 @@ module.exports = {
           description: "Course update timestamp",
         },
       },
-      additionalProperties: false,
     },
   },
 };
+
+module.exports = {courseSchemaMain};

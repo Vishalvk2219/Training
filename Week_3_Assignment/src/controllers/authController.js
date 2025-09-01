@@ -12,13 +12,13 @@ async function register(req, res) {
       password: hashed,
       mobile: mobile || null,
       role: role || "student",
-      age: age || null,
+      age: age || null ,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
     res.status(201).json({ message: "User Registered Successfully" });
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ error: err.message});
   }
 }
 

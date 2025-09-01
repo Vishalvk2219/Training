@@ -1,11 +1,11 @@
-const enrollmentSchema = {
+const enrollmentSchemaMain = {
   validator: {
     $jsonSchema: {
       bsonType: "object",
       required: ["studentId", "courseId", "enrolledAt"],
       properties: {
         studentId: {
-          bsonType: "objectId",
+          bsonType: "string",
           description: "Must be a student _id and is required",
         },
         courseId: {
@@ -26,7 +26,8 @@ const enrollmentSchema = {
           description: "Last updated timestamp",
         },
       },
-      additionalProperties: false,
     },
   },
 };
+
+module.exports ={enrollmentSchemaMain};

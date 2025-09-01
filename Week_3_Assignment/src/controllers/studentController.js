@@ -140,7 +140,7 @@ async function enrollToCourse(req, res) {
     console.error("Enrollment error:", err);
     res
       .status(500)
-      .json({ message: "Failed to enroll student", error: err.message });
+      .json({ message: "Failed to enroll student", error: err });
   }
 }
 
