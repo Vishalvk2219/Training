@@ -1,0 +1,31 @@
+POST /api/auth/register 201 99.305 ms - user=Guest role=Anonymous body={"name":"Vishal","email":"vishal@example.com","password":"123456"}
+POST /api/auth/register 201 64.291 ms - user=Guest role=Anonymous body={"name":"Rahul","email":"rahul@example.com","password":"123456","role":"admin"}
+POST /api/auth/login 200 64.400 ms - user=Guest role=Anonymous body={"email":"rahul@example.com","password":"123456"}
+GET /api/auth/profile 200 4.503 ms - user=68bda26894f17ed8d1847656 role=admin body=-
+POST /api/categories 201 7.210 ms - user=68bda26894f17ed8d1847656 role=admin body={"name":"Technology","description":"This category is about technology"}
+PUT /api/categories/68bda29494f17ed8d184765d 200 8.909 ms - user=68bda26894f17ed8d1847656 role=admin body={"name":"Technology updated","description":"This category is about technology"}
+GET /api/categories 200 2.254 ms - user=Guest role=Anonymous body=-
+POST /api/auth/login 200 61.244 ms - user=Guest role=Anonymous body={"email":"vishal@example.com","password":"123456"}
+POST /api/blogs 201 4.449 ms - user=68bda26494f17ed8d1847653 role=user body={"title":"My First Blog","content":"This is my first blog post.","category":"68bda29494f17ed8d184765d"}
+PUT /api/blogs/68bda2d794f17ed8d1847665 200 5.224 ms - user=68bda26494f17ed8d1847653 role=user body={"title":"My First Blog Updated","content":"This is my first blog post.","category":"68bda29494f17ed8d184765d"}
+POST /api/blogs 201 4.324 ms - user=68bda26494f17ed8d1847653 role=user body={"title":"My Second Blog","content":"This is my Second blog post.","category":"68bda29494f17ed8d184765d"}
+GET /api/blogs 200 9.723 ms - user=Guest role=Anonymous body=-
+GET /api/blogs/68bda30c94f17ed8d184766b 200 6.146 ms - user=Guest role=Anonymous body=-
+POST /api/engagements/68bda30c94f17ed8d184766b/like 201 9.673 ms - user=68bda26494f17ed8d1847653 role=user body=-
+POST /api/engagements/68bda30c94f17ed8d184766b/like 200 6.849 ms - user=68bda26494f17ed8d1847653 role=user body=-
+POST /api/engagements/68bda30c94f17ed8d184766b/like 201 4.851 ms - user=68bda26494f17ed8d1847653 role=user body=-
+POST /api/engagements/68bda30c94f17ed8d184766b/comment 201 4.797 ms - user=68bda26494f17ed8d1847653 role=user body={"content":"This is my first comment.Nice post!"}
+POST /api/engagements/68bda30c94f17ed8d184766b/comment 201 4.880 ms - user=68bda26494f17ed8d1847653 role=user body={"content":"This is my Second comment.Nice post!"}
+GET /api/engagements/68bda30c94f17ed8d184766b/comments 200 4.718 ms - user=Guest role=Anonymous body=-
+DELETE /api/engagements/comment/68bda34a94f17ed8d1847687 200 5.378 ms - user=68bda26494f17ed8d1847653 role=user body=-
+GET /api/engagements/68bda30c94f17ed8d184766b/comments 200 3.327 ms - user=Guest role=Anonymous body=-
+POST /api/categories 403 16.999 ms - user=68bda26494f17ed8d1847653 role=user body={"name":"Technology","description":"This category is about technology"}
+GET /api/categories 200 4.025 ms - user=Guest role=Anonymous body=-
+POST /api/auth/login 200 76.519 ms - user=Guest role=Anonymous body={"email":"rahul@example.com","password":"123456"}
+POST /api/engagements/68bda30c94f17ed8d184766b/like 201 16.352 ms - user=68bda26894f17ed8d1847656 role=admin body=-
+POST /api/engagements/68bda30c94f17ed8d184766b/comment 201 6.876 ms - user=68bda26894f17ed8d1847656 role=admin body={"content":"I am admin and this is my first comment.Nice post!"}
+POST /api/auth/register 201 284.775 ms - user=Guest role=Anonymous body={"name":"Vishal","email":"vishal@example.com","password":"123456"}
+POST /api/auth/login 401 9.426 ms - user=Guest role=Anonymous body={"email":"rahul@example.com","password":"123456"}
+POST /api/auth/register 201 166.933 ms - user=Guest role=Anonymous body={"name":"Rahul","email":"rahul@example.com","password":"123456","role":"admin"}
+POST /api/auth/login 200 161.621 ms - user=Guest role=Anonymous body={"email":"rahul@example.com","password":"123456"}
+POST /api/categories 201 28.222 ms - user=68be65aa132217a0433b8fe1 role=admin body={"name":"Technology","description":"This category is about technology"}
