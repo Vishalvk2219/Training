@@ -3,10 +3,12 @@ import dotenv from "dotenv";
 import authRouter from "./src/routes/auth-routes.js";
 import blogRouter from "./src/routes/blog-routes.js"
 import connectDB from "./src/config/db.js";
+import cors from 'cors';
 dotenv.config()
 const app=express();
 
 app.use(express.json())
+app.use(cors());
 app.get("/",(req,res)=>{
     res.status(200).json({message:"HomePage"})
 })
