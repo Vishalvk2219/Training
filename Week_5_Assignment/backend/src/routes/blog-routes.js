@@ -2,7 +2,7 @@ import express from "express";
 import {
   createBlog,
   getBlogs,
-  getBlogById,
+  getBlogBySlug,
   updateBlog,
   deleteBlog,
   toggleLike,
@@ -14,7 +14,7 @@ const blogRouter = express.Router();
 
 // Public Routes
 blogRouter.get("/", getBlogs);
-blogRouter.get("/:id", getBlogById);
+blogRouter.get("/:slug", getBlogBySlug);
 
 // Protected Routes
 blogRouter.post("/", protect, createBlog);

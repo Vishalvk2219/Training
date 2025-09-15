@@ -1,63 +1,51 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const LatestPosts = () => {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+const LatestPosts = ({ blogs }) => {
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const res = await axios.get("http://localhost:8080/blog/");
-        if (res.data.success && res.data.blogs) {
-          // Map only the fields we need
-          const formatted = res.data.blogs.map((b) => ({
-            id: b._id,
-            title: b.title,
-            category: b.category,
-            authorName: b.author?.name || "Unknown",
-            authorAvatar: b.author?.avatar || "https://via.placeholder.com/50",
-            date: new Date(b.createdAt).toLocaleDateString("en-US", {
-              month: "long",
-              day: "numeric",
-              year: "numeric",
-            }),
-            // You could store a thumbnail field in backend later; placeholder now
-            image:
-              b.featuredimage ||
-              "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60",
-          }));
-          setBlogs(formatted);
-        }
-      } catch (err) {
-        console.error("Error fetching blogs", err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchBlogs();
-  }, []);
+  if (!blogs || blogs.length === 0)
+    return <p className="text-center py-10">No latest posts found.</p>;
 
-  if (loading) return <p className="text-center py-10">Loading latest posts…</p>;
-
+  const formattedPosts = blogs.map((b) => ({
+    id: b._id,
+    slug: b.slug, // ✅ assuming you have slug in your blog model
+    title: b.title,
+    category: b.category,
+    authorName: b.author?.name || "Unknown",
+    authorAvatar:
+      b.author?.avatar || "https://via.placeholder.com/50",
+    date: new Date(b.createdAt).toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }),
+    image:
+      b.featuredimage ||
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60",
+  }));
+  
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 overflow-hidden">
       <h2 className="text-xl font-bold text-gray-900 mb-6">Latest Posts</h2>
-
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {blogs.map((post) => (
+        {formattedPosts.map((post) => (
           <div
             key={post.id}
-            className="bg-white rounded-lg overflow-hidden shadow hover:shadow-md transition-shadow duration-300"
+            role="button"
+            tabIndex={0}
+            onClick={() => navigate(`/blog/${post.slug}`)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') navigate(`/blog/${post.slug}`);
+            }}
+            className="transform transition-transform duration-500 ease-in-out hover:scale-105 cursor-pointer bg-white rounded-lg overflow-hidden shadow hover:shadow-md"
           >
-            {/* Image */}
+
             <img
               src={post.image}
               alt={post.title}
               className="w-full h-48 object-cover"
             />
-
-            {/* Content */}
             <div className="p-5">
               <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                 {post.category}
@@ -65,8 +53,6 @@ const LatestPosts = () => {
               <h3 className="text-base font-semibold text-gray-900 leading-snug mb-4 hover:text-gray-700 transition-colors">
                 {post.title}
               </h3>
-
-              {/* Author */}
               <div className="flex items-center text-sm text-gray-500">
                 <img
                   src={post.authorAvatar}
