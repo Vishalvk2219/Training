@@ -113,6 +113,18 @@ export const deleteBlog = async (req, res) => {
   }
 };
 
+export const myBlogs = async (req, res) => {
+  try {
+    const blogs = await Blog.find({ author: req.user.id, isdeleted: false })
+      .populate("author", "name avatar")
+      .sort({ createdAt: -1 });
+    return res.json({ success: true, blogs });
+  } catch (err) {
+    return res.status(500).json({ success: false, message: "Server error" ,error:err.message});
+  }
+};
+
+
 export const toggleLike = async (req, res) => {
   try {
     const blog = await Blog.findById(req.params.id);
@@ -162,5 +174,28 @@ export const addComment = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({ success: false, message: "Failed to add comment", error: error.message });
+  }
+};
+
+// controllers/categoryController.js
+export const getCategories = async (req, res) => {
+  try {
+    const categories = [
+      { _id: 1, name: "Travel Blogs", slug: "travel-blogs" },
+      { _id: 2, name: "Lifestyle Blogs", slug: "lifestyle-blogs" },
+      { _id: 3, name: "Tech Blogs", slug: "tech-blogs" },
+      { _id: 4, name: "Food and Recipe Blogs", slug: "food-recipe-blogs" },
+      { _id: 5, name: "Fitness and Health Blogs", slug: "fitness-health-blogs" },
+      { _id: 6, name: "Beauty and Fashion Blogs", slug: "beauty-fashion-blogs" },
+      { _id: 7, name: "Personal Development Blogs", slug: "personal-development-blogs" },
+      { _id: 8, name: "Finance and Investment Blogs", slug: "finance-investment-blogs" },
+      { _id: 9, name: "Parenting Blogs", slug: "parenting-blogs" },
+      { _id: 10, name: "Education Blogs", slug: "education-blogs" },
+    ];
+
+    return res.status(200).json({ success: true, categories });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false, message: "Server Error" });
   }
 };

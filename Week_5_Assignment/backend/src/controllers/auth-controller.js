@@ -80,15 +80,34 @@ export const login = async (req, res) => {
 
 export const profile = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select("-password");
+    const { id } = req.user;
+
+    // Fetch user without the password field
+    const user = await User.findById(id).select('-password');
+
     if (!user) {
-      return res.status(404).json({ success: false, message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: 'User not found',
+      });
     }
-    return res.status(200).json({ success: true, user });
-  } catch (err) {
-    return res.status(500).json({ success: false, message: "Unable to view profile", error: err.message });
+
+    return res.status(200).json({
+      success: true,
+      data: user,
+    });
+
+  } catch (error) {
+    console.error('Error fetching user profile:', error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: 'An error occurred while fetching the profile',
+      error: error.message,
+    });
   }
 };
+
 
 export const updateProfile = async (req, res) => {
   try {
