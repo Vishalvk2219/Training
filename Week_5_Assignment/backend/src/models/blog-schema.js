@@ -104,11 +104,7 @@ const blogSchema = new Schema(
   { timestamps: true }
 );
 
-/* 
-📌 Pre-save Hook
-- Automatically create slug
-- Ensure uniqueness (add random suffix if slug exists)
-*/
+
 blogSchema.pre("save", async function (next) {
   if (this.isModified("title") || !this.slug) {
     let baseSlug = slugify(this.title, { lower: true, strict: true });

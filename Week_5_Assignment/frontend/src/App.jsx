@@ -14,37 +14,41 @@ import ContactPage from "./pages/ContactPage";
 import ProfilePage from "./pages/Profile";
 import CreateBlog from "./pages/CreateBlog";
 import MyBlogs from "./pages/MyBlogs";
-
+import { ToastContainer } from 'react-toastify';
 import PrivateRoute from "./components/PrivateRoute";
+import Chatbot from "./components/chatbot/Chatbot";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        {/* Public routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/blog/:slug" element={<FullBlog />} />
-        <Route path="/blog" element={<AllBlogs />} />
-        <Route path="/category" element={<CategoryPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+    <>
+      <BrowserRouter>
+        <Navbar/>
+        <Routes>
+          {/* Public routes */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/blog/:slug" element={<FullBlog />} />
+          <Route path="/blog" element={<AllBlogs />} />
+          <Route path="/category" element={<CategoryPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          {/* Private routes grouping */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/create-blog" element={<CreateBlog />} />
+            <Route path="/edit-blog/:slug" element={<CreateBlog />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/myblogs" element={<MyBlogs />} />
+            <Route path="/preview-blog" element={<FullBlog />} />
+          </Route>
 
-        {/* Private routes grouping */}
-        <Route element={<PrivateRoute />}>
-          <Route path="/create-blog" element={<CreateBlog />} />
-          <Route path="/edit-blog/:slug" element={<CreateBlog />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/myblogs" element={<MyBlogs />} />
-          <Route path="/preview-blog" element={<FullBlog />} />
-        </Route>
-
-        {/* Optional 404 */}
-        <Route path="*" element={<h1 className="text-center py-10">404 - Page Not Found</h1>} />
-      </Routes>
-    </BrowserRouter>
+          {/* Optional 404 */}
+          <Route path="*" element={<h1 className="text-center py-10">404 - Page Not Found</h1>} />
+        </Routes>
+        <Chatbot/>
+      </BrowserRouter>
+      <ToastContainer />
+    </>
   );
 };
 

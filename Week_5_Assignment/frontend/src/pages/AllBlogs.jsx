@@ -1,4 +1,3 @@
-// src/pages/AllBlogs.jsx
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
@@ -63,12 +62,37 @@ const AllBlogs = () => {
 
   // ✅ Normal state
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gray-50">
-      <h1 className="text-3xl font-bold text-gray-900 mb-10 text-center">
-        All Blogs
-      </h1>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="w-full text-center">
+  <h1
+    className="
+      inline-block 
+      text-5xl font-bold 
+      text-emerald-400 
+      border-4 border-emerald-500 
+      bg-white 
+      rounded-2xl 
+      py-4 px-8 
+      mb-8
+      shadow-lg 
+      hover:shadow-2xl 
+      hover:text-white 
+      hover:bg-gradient-to-r hover:from-emerald-500 hover:to-emerald-700
+      hover:border-transparent 
+      transform 
+      hover:scale-105 
+      transition-all 
+      duration-500 
+      ease-in-out
+    "style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)" }}
+  >
+    All Blogs
+  </h1>
+</div>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
           // ✅ Protect BlogCard: if blog is undefined, skip rendering
           blog ? <BlogCard key={blog._id || Math.random()} blog={blog} /> : null

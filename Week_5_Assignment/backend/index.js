@@ -4,7 +4,7 @@ import authRouter from "./src/routes/auth-routes.js";
 import blogRouter from "./src/routes/blog-routes.js"
 import connectDB from "./src/config/db.js";
 import cors from 'cors';
-
+import chatbotRouter from "./src/routes/chatbot-routes.js";
 
 dotenv.config()
 const app=express();
@@ -16,6 +16,7 @@ app.get("/",(req,res)=>{
 })
 app.use('/user',authRouter);
 app.use('/blog',blogRouter)
+app.use('/api/chat', chatbotRouter)
 
 try{
     connectDB();

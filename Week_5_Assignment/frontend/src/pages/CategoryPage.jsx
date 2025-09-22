@@ -28,6 +28,11 @@ const CategoryPage = () => {
           ...new Set(blogList.map((blog) => blog.category).filter(Boolean)),
         ];
         setCategories(uniqueCategories);
+
+        // ✅ set first category as default selected
+        if (uniqueCategories.length > 0) {
+          setSelectedCategory(uniqueCategories[0]);
+        }
       } catch (err) {
         console.error("Error fetching blogs:", err);
         setError("Failed to load blogs. Please try again later.");
@@ -45,10 +50,19 @@ const CategoryPage = () => {
     : [];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-        Browse by Category
-      </h2>
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      <h2
+  className="
+    text-3xl font-bold text-emerald-400 mb-6 text-center
+    [text-shadow:_1px_1px_2px_rgba(0,0,0,0.9)]
+    hover:text-emerald-500
+    transition-transform
+    duration-300
+  "
+>
+  Browse by Category
+</h2>
+
 
       {loading ? (
         <p className="text-center text-gray-600">Loading categories...</p>
@@ -83,7 +97,7 @@ const CategoryPage = () => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
             {selectedCategory
               ? `Blogs in "${selectedCategory}"`
-              : "Select a category to view blogs"}
+              : "Select a category"}
           </h2>
 
           {selectedCategory && (
