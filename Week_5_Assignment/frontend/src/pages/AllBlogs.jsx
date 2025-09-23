@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useState } from "react";
 import axios from "axios";
 import BlogCard from "../components/BlogCard";
+import Pagination from "../components/Pagination";
+
 
 const AllBlogs = () => {
   const [blogs, setBlogs] = useState([]);          // stores blog data
   const [loading, setLoading] = useState(true);     // loading spinner
-  const [error, setError] = useState(null);         // store error messages
-
+  const [error, setError] = useState(null); 
+  const [page,setPage] = useState(1)
+  
+  
   useEffect(() => {
     const fetchBlogs = async () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await axios.get("http://localhost:8080/blog");
+        const res = await axios.get("http://localhost:8080/blog",{
+          params:{
+            page:page || 1,
+            limit:5
+          }
+        });
 
         // ✅ Handle success flag and blogs existence safely
         if (res?.data?.success && Array.isArray(res.data.blogs)) {
@@ -38,7 +47,7 @@ const AllBlogs = () => {
     };
 
     fetchBlogs();
-  }, []);
+  }, [page]);
 
   // ✅ Loading state
   if (loading)
@@ -98,6 +107,7 @@ const AllBlogs = () => {
           blog ? <BlogCard key={blog._id || Math.random()} blog={blog} /> : null
         ))}
       </div>
+      <Pagination page={page} setPage={setPage}/>
     </div>
   );
 };

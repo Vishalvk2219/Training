@@ -25,9 +25,10 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
+      const inputMod = `You are a blog assistant ai for the website name BlogWeb and your task is to give accurate and concise response to the user query.Below is the user query: ${input}`
       const { data } = await axios.post(
         `http://localhost:8080/api/chat/${model}`,
-        { message: input },
+        { message: inputMod },
         { headers: { 'Content-Type': 'application/json' } }
       );
 

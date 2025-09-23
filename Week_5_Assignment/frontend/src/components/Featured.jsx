@@ -35,7 +35,7 @@ const FeaturedPost = ({ blog }) => {
       <div className="relative rounded-xl overflow-hidden shadow-xl group">
         {/* Featured Image */}
         <img
-          className="w-full h-[450px] sm:h-[580px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+          className="w-full h-[450px] sm:h-[560px] object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
           src={post.image}
           alt={post.title}
         />
@@ -56,7 +56,7 @@ const FeaturedPost = ({ blog }) => {
           </h2>
 
           {/* Author */}
-          <div className="mt-5 flex items-center text-sm text-gray-200">
+          {/* <div className="mt-5 flex items-center text-sm text-gray-200">
             <img
               src={post.authorAvatar}
               alt={post.authorName}
@@ -66,7 +66,7 @@ const FeaturedPost = ({ blog }) => {
               <p className="font-medium text-white">{post.authorName}</p>
               <p className="text-xs text-gray-300">{post.date}</p>
             </div>
-          </div>
+          </div> */}
 
         </div>
       </div>

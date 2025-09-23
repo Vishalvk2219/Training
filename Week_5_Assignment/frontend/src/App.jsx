@@ -29,7 +29,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/blog/:slug" element={<FullBlog />} />
-          <Route path="/blog" element={<AllBlogs />} />
+          <Route path="/blog" element={<AllBlogs firstPage={true} />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />

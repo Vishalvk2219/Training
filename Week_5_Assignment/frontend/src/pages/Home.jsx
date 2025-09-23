@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <div>
       <FeaturedPost blog={blogs[0]} />
-      <LatestPosts blogs={blogs.slice(1)} />
+      <LatestPosts blogs={blogs.slice(1,7)} />
     </div>
   );
 };
