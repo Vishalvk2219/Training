@@ -55,7 +55,7 @@ const blogSchema = new Schema(
     tags: {
       type: [String],
       set: (tags) =>
-        tags.map((tag) => tag.trim().toLowerCase()).filter(Boolean), // auto-trim + lowercase
+        tags.map((tag) => tag.trim().toLowerCase()).filter(Boolean), 
     },
 
     category: {

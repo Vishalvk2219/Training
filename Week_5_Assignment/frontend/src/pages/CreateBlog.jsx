@@ -125,7 +125,7 @@ const CreateBlog = () => {
       }
     } catch (err) {
       console.error(err);
-      setMessage("❌ Error saving blog");
+      setMessage("Error saving blog");
       return null;
     } finally {
       setLoading(false);

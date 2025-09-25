@@ -29,8 +29,8 @@ export const createBlog = async (req, res) => {
 export const getBlogs = async (req, res) => {
   try {
     const { tag, category } = req.query;
-    const page = parseInt(req.query.page,10) || 1;
-    const limit = parseInt(req.query.limit,10) || 10;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
     const skip = (page-1)*limit;
     const filter = { isdeleted: false, status: "published" };
     if (tag) filter.tags = tag;

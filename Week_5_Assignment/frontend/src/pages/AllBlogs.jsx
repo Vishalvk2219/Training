@@ -19,7 +19,7 @@ const AllBlogs = () => {
         const res = await axios.get("http://localhost:8080/blog",{
           params:{
             page:page || 1,
-            limit:5
+            limit:6
           }
         });
 
@@ -101,7 +101,7 @@ const AllBlogs = () => {
 
 
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog) => (
           // ✅ Protect BlogCard: if blog is undefined, skip rendering
           blog ? <BlogCard key={blog._id || Math.random()} blog={blog} /> : null

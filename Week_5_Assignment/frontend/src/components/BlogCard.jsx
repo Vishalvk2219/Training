@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaCalendarAlt } from "react-icons/fa"
 
 const BlogCard = ({ blog }) => {
   if (!blog || typeof blog !== "object") {
@@ -31,7 +32,7 @@ const BlogCard = ({ blog }) => {
     (blog.content ? blog.content.slice(0, 150) + "..." : "No description available");
 
   return (
-    <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:scale-104 transition-transform duration-400 flex flex-col h-full">
+    <div className="bg-white rounded-xl shadow-sm overflow-hidden hover:scale-103 transition-transform duration-400 flex flex-col h-full">
       {/* Featured image */}
       <Link to={`/blog/${slug}`}>
         <img
@@ -61,8 +62,8 @@ const BlogCard = ({ blog }) => {
               alt={authorName}
               className="w-8 h-8 rounded-full object-cover"
             />
-            <div className="text-sm text-gray-600">
-              {authorName} • {createdAt}
+            <div className=" flex text-sm text-gray-600">
+              {authorName} • <FaCalendarAlt className="mt-1 mx-1 text-gray-500 size-4" /> {createdAt}
             </div>
           </div>
 
